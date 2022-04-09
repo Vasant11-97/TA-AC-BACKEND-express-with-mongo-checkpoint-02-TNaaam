@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event Management</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="flex space-between align-item container">
+        <ul>
+          <li>
+            <a href="/">Event Management</a>
+          </li>
+        </ul>
+        <ul class="flex">
+          <li>
+            <a href="/event">All Events</a>
+          </li>
+          <li>
+            <a href="/event/new">Add event</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="">
+        <div class="container">
+          <div class="eventdetail">
+            <h2>Title: <%= event.title %></h2>
+            <p>Summary: <%= event.summary %></p>
+            <p>Host: <%= event.host %></p>
+            <p>Starting Date: <%= event.start_date %></p>
+            <p>Ending Date: <%= event.end_date %></p>
+            <p>Category: <%= event.eventCategory %></p>
+            <p>Location: <%= event.location %></p>
+            <p>Likes: <%= event.likes %></p>
+            <div>
+              <a href="/event/<%= event.id%>/edit">
+                <button>Edit</button>
+              </a>
+              <a href="/event/<%= event.id%>/delete">
+                <button>Delete</button>
+              </a>
+              <a href="/event/<%= event.id%>/likes">
+                <button>Like</button>
+              </a>
+              <a href="/event/<%= event.id%>/dislike">
+                <button>Dislike</button></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="container remark">
+          <form action="/remark/<%= event.id%>" method="post">
+            <textarea
+              name="content"
+              id=""
+              cols="30"
+              rows="10"
+              placeholder="Enter Remark "
+            ></textarea>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+        <div class="showremark container">
+          <h3>Remarks</h3>
+          <hr />
+
+          <% event.remarks.forEach(remark => { %>
+          <div>
+            <p><%= remark.content%></p>
+            <p><%= remark.likes%></p>
+            <a href="/remark/<%= remark._id%>/edit">
+              <button>Edit</button>
+            </a>
+            <a href="/remark/<%= remark._id%>/delete">
+              <button>Delete</button>
+            </a>
+            <a href="/remark/<%= remark._id%>/likes">
+              <button>Like</button>
+            </a>
+            <a href="/remark/<%= remark._id%>/dislike">
+              <button>Dislike</button>
+            </a>
+          </div>
+          <% }) %>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
