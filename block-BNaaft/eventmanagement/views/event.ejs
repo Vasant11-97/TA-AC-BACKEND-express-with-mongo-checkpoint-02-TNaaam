@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event Management</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="flex space-between align-item container">
+        <ul>
+          <li>
+            <a href="/">Event Management</a>
+          </li>
+        </ul>
+        <ul class="flex">
+          <li>
+            <a href="/event">All Events</a>
+          </li>
+          <li>
+            <a href="/event/new">Add event</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="container category">
+        <form action="/search/" method="GET">
+          <label for="category">ByCategory: </label>
+          
+          <select name="fcategory" id="fcategory">
+              <option value="">Select Category </option>
+              <% category.forEach((c)=>{%>
+                <option value="<%= c %>"><%= c%></option>
+             <% })%>
+          </select>
+          <label for="location">ByLoaction: </label>
+          <select name="flocation" id="flocation">
+              <option value="">Select Location</option>
+              <% location.forEach((l)=>{%>
+                      <option value="<%=l%>"><%=l%></option>
+              <% })%>
+          </select>
+          <label for="date">ByDate</label>
+          <select name="fdate" id="date">
+              <option value="">Select By Date</option>
+              <option value="latest">Latest</option>
+              <option value="oldest">Oldest</option>
+          </select>
+          <button type="submit">Search</button>
+      </form>
+  
+      </div>
+      </section>
+      <section class="container flex space-between">
+        <div class="flex-60 flex wrap">
+          <% event.forEach((e) => { %>
+          <div class="event">
+            <h2>Title: <%= e.title%></h2>
+            <p>Summary: <%= e.summary%></p>
+            <p>Host: <%= e.host%></p>
+            <p>Location: <%= e.location%></p>
+            <a href="/event/<%= e.id %>">
+              <button>Read More</button>
+            </a>
+          </div>
+          <% }) %>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event Management</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="flex space-between align-item container">
+        <ul>
+          <li>
+            <a href="/">Event Management</a>
+          </li>
+        </ul>
+        <ul class="flex">
+          <li>
+            <a href="/event">All Events</a>
+          </li>
+          <li>
+            <a href="/event/new">Add event</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <fieldset class="form">
+        <form action="/event/new" method="post">
+          <input type="text" name="title" placeholder="Enter title" />
+          <input
+            type="text"
+            name="summary"
+            id=""
+            placeholder="Enter details of Event"
+          />
+          <input
+            type="text"
+            name="host"
+            id=""
+            placeholder="Enter your name/company name"
+          />
+          <label for="startDate">Enter Event Date:</label>
+          <input
+            type="date"
+            class="date"
+            name="start_date"
+            id="startDate"
+            placeholder="Enter Date"
+          />
+          <label for="endDate">Enter End Date:</label>
+          <input
+            type="date"
+            class="date"
+            name="end_date"
+            id="endDate"
+            placeholder="Enter Date"
+          />
+          <input
+            type="text"
+            name="eventCategory"
+            placeholder="Enter Category of Event"
+          />
+          <input
+            type="text"
+            name="location"
+            id=""
+            placeholder="Enter Location of event"
+          />
+          <input class="submit" type="submit" value="Submit" />
+        </form>
+      </fieldset>
+    </main>
+  </body>
+</html>
