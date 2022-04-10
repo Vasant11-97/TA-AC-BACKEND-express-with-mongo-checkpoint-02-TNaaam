@@ -23,17 +23,17 @@
       </nav>
     </header>
     <main>
-      <section class="container">
+      <section class="container category">
         <form action="/search/" method="GET">
-          <label for="category">ByCategory</label>
+          <label for="category">ByCategory: </label>
           
           <select name="fcategory" id="fcategory">
-              <option value="">Select Category</option>
+              <option value="">Select Category </option>
               <% category.forEach((c)=>{%>
                 <option value="<%= c %>"><%= c%></option>
              <% })%>
           </select>
-          <label for="location">ByLoaction</label>
+          <label for="location">ByLoaction: </label>
           <select name="flocation" id="flocation">
               <option value="">Select Location</option>
               <% location.forEach((l)=>{%>

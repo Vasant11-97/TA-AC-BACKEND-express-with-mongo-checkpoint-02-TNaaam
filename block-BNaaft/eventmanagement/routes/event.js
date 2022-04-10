@@ -83,6 +83,7 @@ router.get('/:id/edit', (req, res, next) => {
 router.post('/:id', (req, res, next) => {
   var id = req.params.id;
   Event.findByIdAndUpdate(id, req.body, (err, updatedEvent) => {
+    console.log(updatedEvent);
     if (err) return next(err);
     res.redirect('/event/' + id);
   });

@@ -24,9 +24,9 @@ router.get('/search', (req, res, next) => {
     var filter = {};
   }
   if (query.fdate === 'latest') {
-    var sortEvent = { start_date: 1 };
-  } else {
     var sortEvent = { start_date: -1 };
+  } else {
+    var sortEvent = { start_date: 1 };
   }
 
   Event.find(filter)

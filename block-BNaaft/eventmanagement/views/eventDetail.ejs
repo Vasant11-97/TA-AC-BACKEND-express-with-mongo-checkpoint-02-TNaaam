@@ -29,23 +29,28 @@
             <h2>Title: <%= event.title %></h2>
             <p>Summary: <%= event.summary %></p>
             <p>Host: <%= event.host %></p>
-            <p>Starting Date: <%= event.start_date %></p>
-            <p>Ending Date: <%= event.end_date %></p>
+            <p>
+              Starting Date: <%= event.start_date.toISOString().substring(0,
+              10); %>
+            </p>
+            <p>
+              Ending Date: <%= event.end_date.toISOString().substring(0, 10); %>
+            </p>
             <p>Category: <%= event.eventCategory %></p>
             <p>Location: <%= event.location %></p>
             <p>Likes: <%= event.likes %></p>
             <div>
               <a href="/event/<%= event.id%>/edit">
-                <button>Edit</button>
+                <button>Edit✍🏻</button>
               </a>
-              <a href="/event/<%= event.id%>/delete">
-                <button>Delete</button>
+              <a class="delete" href="/event/<%= event.id%>/delete">
+                <button>Delete🗑</button>
               </a>
               <a href="/event/<%= event.id%>/likes">
-                <button>Like</button>
+                <button>Like 👍🏻</button>
               </a>
               <a href="/event/<%= event.id%>/dislike">
-                <button>Dislike</button></a
+                <button>Dislike 👎🏻</button></a
               >
             </div>
           </div>
@@ -59,28 +64,29 @@
               rows="10"
               placeholder="Enter Remark "
             ></textarea>
+            <br />
             <input type="submit" value="Submit" />
           </form>
         </div>
         <div class="showremark container">
-          <h3>Remarks</h3>
+          <h3>Remarks:</h3>
           <hr />
 
           <% event.remarks.forEach(remark => { %>
-          <div>
-            <p><%= remark.content%></p>
-            <p><%= remark.likes%></p>
+          <div class="eachremark">
+            <p>Remark: <%= remark.content%></p>
+            <p>Likes: <%= remark.likes%></p>
             <a href="/remark/<%= remark._id%>/edit">
-              <button>Edit</button>
+              <button>Edit✍🏻</button>
             </a>
-            <a href="/remark/<%= remark._id%>/delete">
-              <button>Delete</button>
+            <a class="delete" href="/remark/<%= remark._id%>/delete">
+              <button>Delete🗑</button>
             </a>
             <a href="/remark/<%= remark._id%>/likes">
-              <button>Like</button>
+              <button>Like👍🏻</button>
             </a>
             <a href="/remark/<%= remark._id%>/dislike">
-              <button>Dislike</button>
+              <button>Dislike👎🏻</button>
             </a>
           </div>
           <% }) %>
